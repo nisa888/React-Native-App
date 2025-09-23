@@ -3,25 +3,22 @@ export interface Recipe {
   title: string;
   description: string;
   ingredients: string[];
+  instructions: string;
 }
 
 export const mockedRecipes: Recipe[] = [
   {
     id: "r1",
     title: "Spaghetti Bolognese",
-    description: "En klassisk pasta med köttfärssås.",
-    ingredients: ["spaghetti", "köttfärs", "tomatsås", "lök", "vitlök"],
+    description: "En klassisk italiensk rätt",
+    ingredients: ["Spaghetti", "Köttfärs", "Tomatsås"],
+    instructions: "Koka pastan. Stek köttfärsen. Blanda med tomatsås. Servera med pasta.",
   },
   {
     id: "r2",
-    title: "Kycklinggryta",
-    description: "Krämig gryta med kyckling och grönsaker.",
-    ingredients: ["kyckling", "grädde", "paprika", "lök", "morot"],
-  },
-  {
-    id: "r3",
-    title: "Pannkakor",
-    description: "Tunna pannkakor som passar perfekt med sylt.",
-    ingredients: ["mjöl", "ägg", "mjölk", "smör", "salt"],
+    title: "Kycklingwok",
+    description: "Snabb wok med grönsaker",
+    ingredients: ["Kyckling", "Paprika", "Sojasås"],
+    instructions: "Skär kycklingen. Woka med grönsaker. Tillsätt sås. Servera med ris.",
   },
 ];

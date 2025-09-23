@@ -7,10 +7,29 @@ interface Props {
 
 export default function RecipeCard({recipe}: Props) {
    return (
-      <View>
-         <Text>{recipe.title}</Text>
+      <View style={styles.card}>
+         <Text style={styles.title}>{recipe.title}</Text>
          <Text>{recipe.description}</Text>
-         <Text>{recipe.ingredients}</Text>
+         <Text style={styles.subtitle}>Ingredienser:</Text>
+         {recipe.ingredients.map((ing, index) => (
+            <Text key={index}>• {ing}</Text>
+         ))}
       </View>
    )
 }
+
+const styles = StyleSheet.create({
+   card: {
+      padding: 12,
+      marginBottom: 10,
+      borderRadius: 8,
+   },
+   title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginBottom: 4,
+   },
+   subtitle: {
+      marginTop: 6,
+   },
+})
