@@ -14,7 +14,7 @@ export default function RecipeDetail() {
          <Text>{recipe.description}</Text>
          <Text>Ingredienser:</Text>
          {recipe.ingredients.map((ing, index) => (
-            <Text>• {ing}</Text>
+            <Text key={index}> {ing}</Text>
          ))}
          <Text>Instruktioner:</Text>
          <Text>{recipe.instructions}</Text>
