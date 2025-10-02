@@ -3,6 +3,7 @@ import {View, Text, TextInput, Button, ScrollView, StyleSheet} from 'react-nativ
 import {useRouter} from 'expo-router'
 import RecipeCard from '@/components/recipeCard'
 import {Recipe} from '@/data/recipes'
+import {LinearGradient} from 'expo-linear-gradient'
 
 export default function HomeScreen() {
    const [searchTerm, setSearchTerm] = useState('')
@@ -32,36 +33,46 @@ export default function HomeScreen() {
    }
 
    return (
-      <View style={styles.container}>
-         <Text>Sök efter recept baserat på ingredienser:</Text>
+      <LinearGradient colors={['#01122eff', '#374864ff']} style={styles.gradient}>
+         <View style={styles.container}>
+            <Text style={styles.label}>Sök efter recept baserat på ingredienser:</Text>
 
-         <TextInput style={styles.input} placeholder='search' value={searchTerm} onChangeText={setSearchTerm} />
+            <TextInput style={styles.input} placeholder='search' value={searchTerm} onChangeText={setSearchTerm} />
 
-         <Button title='Sök' onPress={handleSearch} />
+            <Button title='Sök' onPress={handleSearch} />
 
-         <ScrollView style={styles.results}>
-            {results.map((recipe) => (
-               <RecipeCard
-                  key={recipe.id}
-                  recipe={recipe}
-                  onPress={() =>
-                     router.push({
-                        pathname: '/recipes/[id]',
-                        params: {id: recipe.id},
-                     })
-                  }
-               />
-            ))}
-            {results.length === 0 && <Text>Inga recept hittades.</Text>}
-         </ScrollView>
-      </View>
+            <ScrollView style={styles.results}>
+               {results.map((recipe) => (
+                  <RecipeCard
+                     key={recipe.id}
+                     recipe={recipe}
+                     onPress={() =>
+                        router.push({
+                           pathname: '/recipes/[id]',
+                           params: {id: recipe.id},
+                        })
+                     }
+                  />
+               ))}
+               {results.length === 0 && <Text style={styles.noResults}>Inga recept hittades.</Text>}
+            </ScrollView>
+         </View>
+      </LinearGradient>
    )
 }
 
 const styles = StyleSheet.create({
+   gradient: {
+      flex: 1,
+   },
    container: {
       flex: 1,
       padding: 16,
+   },
+   label: {
+      color: 'white',
+      fontSize: 16,
+      marginBottom: 8,
    },
    input: {
       borderWidth: 1,
@@ -69,8 +80,13 @@ const styles = StyleSheet.create({
       padding: 8,
       marginVertical: 8,
       borderRadius: 4,
+      backgroundColor: 'white',
    },
    results: {
+      marginTop: 16,
+   },
+   noResults: {
+      color: 'white',
       marginTop: 16,
    },
 })

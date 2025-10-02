@@ -3,6 +3,7 @@ import {ScrollView, StyleSheet} from 'react-native'
 import {useRouter} from 'expo-router'
 import RecipeCard from '@/components/recipeCard'
 import {Recipe} from '@/data/recipes'
+import {LinearGradient} from 'expo-linear-gradient'
 
 export default function RecipesScreen() {
    const [recipes, setRecipes] = useState<Recipe[]>([])
@@ -30,25 +31,30 @@ export default function RecipesScreen() {
    }, [])
 
    return (
-      <ScrollView contentContainerStyle={styles.container}>
-         {recipes.map((recipe) => (
-            <RecipeCard
-               key={recipe.id}
-               recipe={recipe}
-               onPress={() =>
-                  router.push({
-                     pathname: '/recipes/[id]',
-                     params: {id: recipe.id},
-                  })
-               }
-            />
-         ))}
-      </ScrollView>
+      <LinearGradient colors={['#01122eff', '#374864ff']} style={styles.gradient}>
+         <ScrollView contentContainerStyle={styles.container}>
+            {recipes.map((recipe) => (
+               <RecipeCard
+                  key={recipe.id}
+                  recipe={recipe}
+                  onPress={() =>
+                     router.push({
+                        pathname: '/recipes/[id]',
+                        params: {id: recipe.id},
+                     })
+                  }
+               />
+            ))}
+         </ScrollView>
+      </LinearGradient>
    )
 }
 
 const styles = StyleSheet.create({
    container: {
       padding: 16,
+   },
+   gradient: {
+      flex: 1,
    },
 })
