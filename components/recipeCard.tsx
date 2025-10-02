@@ -19,7 +19,7 @@ export default function RecipeCard({recipe, onPress}: Props) {
          {recipe.image ? <Image source={{uri: recipe.image}} style={styles.image} /> : null}
 
          <Text style={styles.title}>{recipe.title}</Text>
-         <Text>{recipe.description}</Text>
+         <Text style={styles.descrption}>{recipe.description}</Text>
       </TouchableOpacity>
    )
 }
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
       padding: 12,
       marginBottom: 10,
       borderRadius: 8,
-      backgroundColor: '#e7e7e7ff',
+
       alignItems: 'center',
       width: '100%',
    },
@@ -41,12 +41,17 @@ const styles = StyleSheet.create({
    },
    title: {
       fontSize: 18,
+      color: '#f5f5f5ff',
       fontWeight: 'bold',
       marginBottom: 4,
       textAlign: 'center',
    },
+   descrption: {
+      color: '#d1d1d1ff',
+   },
    subtitle: {
       marginTop: 6,
       fontWeight: 'bold',
+      color: 'white',
    },
 })
