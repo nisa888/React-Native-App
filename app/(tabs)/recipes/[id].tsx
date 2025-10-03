@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react'
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native'
+import {Text, StyleSheet, ScrollView, Image} from 'react-native'
 import {useLocalSearchParams} from 'expo-router'
-import {LinearGradient} from 'expo-linear-gradient'
 
 interface Recipe {
    id: string

@@ -1,23 +1,15 @@
 import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native'
+import {Recipe} from '@/data/recipes'
 
 interface Props {
    recipe: Recipe
    onPress: () => void
-}
-interface Recipe {
-   id: string
-   title: string
-   description: string
-   ingredients: string[]
-   instructions: string
-   image?: string
 }
 
 export default function RecipeCard({recipe, onPress}: Props) {
    return (
       <TouchableOpacity onPress={onPress} style={styles.card}>
          {recipe.image ? <Image source={{uri: recipe.image}} style={styles.image} /> : null}
-
          <Text style={styles.title}>{recipe.title}</Text>
          <Text style={styles.descrption}>{recipe.description}</Text>
       </TouchableOpacity>
