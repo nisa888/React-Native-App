@@ -2,7 +2,7 @@
 
 En enkel receptapp byggd med **React Native** och **Expo**.  
 Appen hämtar recept från det externa API:t [TheMealDB](https://www.themealdb.com/) och visar dem i en lista.  
-Användaren kan även söka efter recept baserat på ingredienser.  
+Användaren kan även söka efter recept baserat på ingredienser - sökord måste vara på engelska!
 
 ---
 
