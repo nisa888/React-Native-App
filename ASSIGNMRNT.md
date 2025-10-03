@@ -42,6 +42,8 @@ Användaren kan även söka efter recept baserat på ingredienser.
 - **useLocalSearchParams** (hook från `expo-router`) – för att hämta id:t till det valda receptet  
 - **Ionicons** (från `@expo/vector-icons`) – för ikoner i tabbarna  
 
+### Extern modul
+- **axios** – används för att hämta recept från API:t istället för `fetch`.
 
 ### Krav för Godkänt
 
